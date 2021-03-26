@@ -11,6 +11,6 @@ async function _fetchProduct(id){
 export function searchHandler (event){
   let searchBox = document.getElementById('productID');
   if(searchBox.value!=""){
-    _fetchProduct(searchBox.value)
+    let product = _fetchProduct(searchBox.value)
   }
 }
