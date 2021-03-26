@@ -4,15 +4,17 @@
     <title>Christianbook - Product Search</title>
     <meta charset="utf-8">
     <meta lang="en-US">
+    <script type="text/text/javascript" src="./index.js"></script>
   </head>
   <body>
     <main>
       <h1>Christianbook - Product Search</h1>
-      <form method="get" class="product-search" action="/product">
+      <div class="product-search">
+        <!-- TODO: explain why this isn't a <form> -->
         <label for="product-id">Enter Product ID: </label>
         <input type="text" name="productID" id="productID" required>
-        <input type="submit" value="Search Products">
-      </form>
+        <button type="button">Search Products</button>
+      </div>
     </main>
   </body>
 </html>

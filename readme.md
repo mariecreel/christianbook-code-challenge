@@ -14,3 +14,5 @@ products within the Christianbook database by providing a product ID.
 [NodeJS v15.12.0 Documentation: HTTP](https://nodejs.org/api/http.html#http_class_http_server)
 
 [Express Getting Started Guide: Serving static files in Express](https://expressjs.com/en/starter/static-files.html)
+
+[Express Documentation: Routing](https://expressjs.com/en/guide/routing.html)
