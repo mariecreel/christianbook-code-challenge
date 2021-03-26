@@ -12,3 +12,5 @@ products within the Christianbook database by providing a product ID.
 [NodeJS documentation: How do I start with Node.js after I installed it?](https://nodejs.org/en/docs/guides/getting-started-guide/)
 
 [NodeJS v15.12.0 Documentation: HTTP](https://nodejs.org/api/http.html#http_class_http_server)
+
+[Express Getting Started Guide: Serving static files in Express](https://expressjs.com/en/starter/static-files.html)

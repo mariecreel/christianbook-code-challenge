@@ -7,10 +7,14 @@ const port = 3000;
 
 app.use(express.static('public'))
 
-app.get('/product/', (req, res)=>{
+app.get('/product', (req, res)=>{
   res.send('hello world')
 })
 
 app.listen(port, ()=>{
   console.log(`app listening at http://localhost:${3000}`)
+})
+
+app.use(function (req, res, next) {
+  res.status(404).send("Sorry, I can't find that!")
 })
