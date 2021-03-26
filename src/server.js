@@ -1,23 +1,27 @@
 const express = require('express')
 const app = express();
+const hashProducts = require('./hashProducts.js')
 const products = require('./products.json');
 const hostname = '127.0.0.1';
 const port = 3001;
+
+const productsHashTable = hashProducts(products)
+console.log(productsHashTable)
 
 app.use(express.static('public'))
 
 app.get('/product', (req, res)=>{
   let productID = req.query.productID;
-  for(let i=0; i < products.records.length; i++){
-    if(products.records[i].id == productID){
-      return res.send(products.records[i])
-    }
+  console.log('productID is', productID)
+  if(productsHashTable[productID]){
+    console.log('index is', productsHashTable[productID]);
+    return res.send(products.records[productsHashTable[productID]]);
   }
   return res.status(404).send("Sorry, that product doesn't exist!")
 })
 
 app.listen(port, ()=>{
-  console.log(`app listening at http://localhost:${port}`)
+  console.log(`app listening at http://${hostname}:${port}`)
 })
 
 app.use(function (req, res, next) {
