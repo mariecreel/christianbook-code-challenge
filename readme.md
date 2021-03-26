@@ -16,3 +16,5 @@ products within the Christianbook database by providing a product ID.
 [Express Getting Started Guide: Serving static files in Express](https://expressjs.com/en/starter/static-files.html)
 
 [Express Documentation: Routing](https://expressjs.com/en/guide/routing.html)
+
+[MDN Web Docs: Response](https://developer.mozilla.org/en-US/docs/Web/API/Response)
