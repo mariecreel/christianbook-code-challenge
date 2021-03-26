@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express();
 const products = require('./products.json');
-const fs = require('fs').promises;
 const hostname = '127.0.0.1';
 const port = 3001;
 
