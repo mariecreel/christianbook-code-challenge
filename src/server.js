@@ -15,7 +15,7 @@ app.get('/product', (req, res)=>{
   console.log('productID is', productID)
   if(productsHashTable[productID]){
     console.log('index is', productsHashTable[productID]);
-    return res.send(products.records[productsHashTable[productID]]);
+    return res.send(JSON.stringify(products.records[productsHashTable[productID]]));
   }
   return res.status(404).send("Sorry, that product doesn't exist!")
 })
