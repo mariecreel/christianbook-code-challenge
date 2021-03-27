@@ -31,7 +31,7 @@ async function fetchProduct(id){
       document.getElementById('product-card').style.display = null;
     }
   } else {
-    document.getElementById('error').style.display = 'inline';
+    document.getElementById('error').style.display = null;
     document.getElementById('product-card').style.display = 'none'
   }
 }
