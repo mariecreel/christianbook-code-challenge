@@ -4,10 +4,78 @@ Marie Creel - March 2021 - MIT License
 
 ## About
 
-This application, built with NodeJS and JavaScript, allows users to search for
-products within the Christianbook database by providing a product ID.
+TODO: Explain how app works
 
-## Sources Used
+## Performance
+
+### API Requests and Database Searches
+
+My original implementation of the database search was a simple linear search
+where the server iterated through the records array from beginning to end until
+it found a product ID that matched user input. In the worst case, a linear
+search has O(n) complexity; this doesn't cause huge problems for a database of
+size 10, but becomes problematic when the user happens to search for a product
+whose index is close to the end of the array. The longer the array is, the more
+likely it is that the user will experience a significant delay when searching
+for a product.
+
+To avoid this bottleneck, I decided to preprocess the database and create a
+hash table that associates product IDs to the index of the matching product in
+the records array. To create this hash table, I used a linear search to traverse
+the records array and add an entry to the hash table for each object in the
+array. Then, when responding to API requests, the server simply checks to see
+whether the product ID is stored as a key in the hash table or not. If so, the
+server uses the index stored in the hash table to retrieve the product
+information from the records array. If not, the server sends a 404 response.
+
+While this process still uses a linear search to create the hash table, rather
+than iterating over the array every time a request is made, the database only
+needs to be iterated over from beginning to end once, reducing the amount of
+times that a search of O(n) complexity has to be completed. Now, whenever the
+user searches for a product, they trigger a search of O(2) complexity
+because the server only needs to retrieve the value of the associated index
+from the hash table and then use that index to retrieve the product information
+from the records array. Two steps for a search is much faster than the worst
+case scenario for the O(n) search, and the complexity for this search will not
+increase as the size of the database increases.
+
+I suspect that the initial linear search through the database could also be
+optimized by using a different algorithm, such as a binary search. However, the
+binary search requires that the information being searched is sorted, which
+is not the case for the provided database. Furthermore, because we need to visit
+each element in the records array at least once to create the hash table, I'm
+not positive that using a different search algorithm would improve performance,
+unless the search made use of multiple concurrent threads.
+
+### Load Testing: Multiple Clients
+
+TODO
+
+## Time Spent in Development
+
+I spent 7 hours developing the app according to the specification provided, then
+!!!!!<TODO: insert hours here>!!!!! hours load testing the application.
+
+## Possible Improvements
+
+I decided not to use a frontend framework when building the UI because I felt
+confident in my ability to write all the necessary front end functions in
+vanilla JavaScript. However, because I wrote the front end using vanilla JS,
+some of the code is inelegant, and a bit repetitive. For example, when creating
+the card that displays the search results for a particular product ID, create a
+large number of elements using functions like <code>document.createElement(...)</code>
+and <code>document.getElementById(...).style.display(...)</code> that make the
+code difficult to read quickly for any errors when debugging. The obvious
+solution here would be to use a templating library like handlebars.js or built-in
+templating tools in frameworks like React or Svelte to programmatically update
+the DOM each time a search is made. I've done this in other projects,
+and it would definitely clean up the code here as well. This would be even more
+necessary if we were expecting multiple results in response to our query rather
+than just one result; I'd have to repeat the code I've written for any possible
+number of returned objects, which is impossible without some kind of template to
+fill in for each result. 
+
+## Sources Consulted
 
 [NodeJS documentation: How do I start with Node.js after I installed it?](https://nodejs.org/en/docs/guides/getting-started-guide/)
 
@@ -20,3 +88,5 @@ products within the Christianbook database by providing a product ID.
 [MDN Web Docs: Response](https://developer.mozilla.org/en-US/docs/Web/API/Response)
 
 [StackExchange: Trigger a button click with JavaScript on the Enter key in a text box](https://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box)
+
+[MDN Web Docs: Using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries).

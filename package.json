@@ -1,7 +1,8 @@
 {
   "name": "simple-product-display",
   "version": "1.0.0",
-  "description": "Simple website that displays a list of products and clickable images of said products via interaction with a REST API.",
+  "description": "Simple website that displays a list of products via interaction
+                  with a REST API.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
