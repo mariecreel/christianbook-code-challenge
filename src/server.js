@@ -6,11 +6,11 @@ const hostname = '127.0.0.1';
 const port = 3001;
 
 const productsHashTable = hashProducts(products)
-console.log(productsHashTable)
 
 app.use(express.static('public'))
 
 app.get('/product/:id', (req, res)=>{
+  console.log("API request made!")
   let productID = req.params.id;
   // debug: console.log('productID is', productID)
   if(productsHashTable[productID]){
