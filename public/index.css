@@ -1,6 +1,6 @@
 #error{
   display: none;
-  color: red;
+  color: #fa8246;
 }
 
 #results{
@@ -19,6 +19,7 @@
 
 .product-search{
   justify-content: center;
+  padding-bottom: 20px;
 }
 
 a{
@@ -30,7 +31,7 @@ a:hover{
 }
 
 a:visited{
-  color: #fa8246;
+  color: #246873;
 }
 
 html{
