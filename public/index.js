@@ -55,14 +55,14 @@ function makeCard(prodObj){
     if(prodObj.isbn == ''){
       document.getElementById('isbn').style.display = 'none';
     } else {
-      document.getElementById('isbn').innerText = prodObj.isbn;
+      document.getElementById('isbn').innerText = `ISBN: ${prodObj.isbn}`;
       document.getElementById('isbn').style.display = null;
     }
 
     if(prodObj.isbn13 == ''){
       document.getElementById('isbn13').style.display = 'none';
     } else {
-      document.getElementById('isbn13').innerText = prodObj.isbn13;
+      document.getElementById('isbn13').innerText = `ISBN13: ${prodObj.isbn13}`;
       document.getElementById('isbn13').style.display = null;
     }
 
@@ -71,6 +71,7 @@ function makeCard(prodObj){
     results = document.getElementById('results');
     let header = document.createElement('h2');
     header.innerText = 'Results:'
+    document.getElementsByClassName('product-search')[0].appendChild(header)
 
     // making the card for an individual product on first search
     let card = document.createElement('div');
@@ -120,7 +121,6 @@ function makeCard(prodObj){
       isbn13.style.display = 'none'
     }
 
-    card.appendChild(header);
     card.appendChild(link);
     card.appendChild(description);
     console.log(description)

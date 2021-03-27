@@ -2,3 +2,49 @@
   display: none;
   color: red;
 }
+
+#results{
+  text-align:left;
+}
+
+#search-label, #productID, #search-button {
+  padding-right: 5px;
+  font-size: 1.2rem;
+}
+
+#product-card{
+  background-color: #fff;
+  padding: 20px;
+}
+
+.product-search{
+  display:grid;
+  justify-content: center;
+}
+
+html{
+  background-color: #fafffd;
+  color: #342e37;
+  font-family: sans-serif;
+}
+
+main{
+  background-color: #ebfff7;
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .product-search{
+    margin: 0 auto;
+    max-width:80%;
+  }
+  #search-label, #productID, #search-button {
+    display: block;
+  }
+  main{
+    width: 100%
+  }
+}

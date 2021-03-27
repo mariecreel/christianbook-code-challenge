@@ -12,14 +12,14 @@
       <h1>Christianbook - Product Search</h1>
       <div class="product-search">
         <!-- TODO: explain why this isn't a <form> -->
-        <label for="product-id">Enter Product ID: </label>
+        <label for="product-id" id="search-label">Enter Product ID: </label>
         <input type="text" name="productID" id="productID"
         onkeydown =
         "if (event.keyCode == 13){
-          document.getElementById('searchButton').click()
+          document.getElementById('search-button').click()
          }"
         required>
-        <button id="searchButton" type="button" onclick="buttonHandler()">Search Products</button>
+        <button id="search-button" type="button" onclick="buttonHandler()">Search Products</button>
       </div>
       <h2 id="error">Sorry, that product does not exist!</h2>
       <div id="results">
