@@ -84,6 +84,7 @@ function makeCard(prodObj){
     let link = document.createElement('a');
     link.id = 'card-link';
     link.href = prodObj.link;
+    link.target = "_blank"
 
     let image = document.createElement('img');
     image.id = 'card-image'
