@@ -22,17 +22,24 @@ async function fetchProduct(id){
   const response = await fetch(_URL, {method: 'GET', mode: 'same-origin'});
     // we're making a request to our own server, hence same-origin
   if(response.status == '200'){
+
     if(document.getElementById('error').style.display != 'none'){
       document.getElementById('error').style.display = 'none';
     }
+
     let product = await response.json()
     makeCard(product)
+
     if(document.getElementById('product-card').style.display == 'none'){
       document.getElementById('product-card').style.display = null;
     }
+
   } else {
-    document.getElementById('error').style.display = null;
+    console.log('error')
+    document.getElementById('error').style.display = 'block';
+    if(document.getElementById('product-card')){
     document.getElementById('product-card').style.display = 'none'
+    }
   }
 }
 
