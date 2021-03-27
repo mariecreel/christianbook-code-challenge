@@ -7,7 +7,7 @@ function buttonHandler(event){
   let searchBox = document.getElementById('productID');
   // this is the text input box
   if(searchBox.value!=''){
-    let product = fetchProduct(searchBox.value)
+    fetchProduct(searchBox.value)
   }
 }
 
@@ -27,8 +27,12 @@ async function fetchProduct(id){
     }
     let product = await response.json()
     makeCard(product)
+    if(document.getElementById('product-card').style.display == 'none'){
+      document.getElementById('product-card').style.display = null;
+    }
   } else {
     document.getElementById('error').style.display = 'inline';
+    document.getElementById('product-card').style.display = 'none'
   }
 }
 
