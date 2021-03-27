@@ -35,7 +35,6 @@ async function fetchProduct(id){
     }
 
   } else {
-    console.log('error')
     document.getElementById('error').style.display = 'block';
     if(document.getElementById('product-card')){
     document.getElementById('product-card').style.display = 'none'
@@ -55,7 +54,6 @@ function makeCard(prodObj){
   elements as necessary. For example, if the ISBN and ISBN13 attributes
   are empty, then their display style attribute is changed to 'none'.
   */
-  console.log(prodObj);
 
   if(results.children.length!= 0){
     // if we've searched before, there's no need to delete/create elements
@@ -135,7 +133,6 @@ function makeCard(prodObj){
 
     card.appendChild(link);
     card.appendChild(description);
-    console.log(description)
     results.appendChild(card)
   }
 }
