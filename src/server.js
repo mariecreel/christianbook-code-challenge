@@ -10,7 +10,7 @@ const productsHashTable = hashProducts(products)
 app.use(express.static('public'))
 
 app.get('/product/:id', (req, res)=>{
-  console.log("API request made!")
+  console.log(`API request made! Query: ${req.params.id}`)
   let productID = req.params.id;
   // debug: console.log('productID is', productID)
   if(productsHashTable[productID]){
@@ -19,7 +19,7 @@ app.get('/product/:id', (req, res)=>{
       JSON.stringify(products.records[productsHashTable[productID]])
     );
   }else{
-  return res.status(404).send("Sorry, that product doesn't exist!")
+  return res.status(404).send("Sorry, that product doesn't exist.")
   }
 })
 
