@@ -34,6 +34,13 @@ a:visited{
   color: #246873;
 }
 
+button{
+  background-color: #a2d729;
+  border-radius: 20px 20px 20px 20px;
+  padding: 5px;
+  border-color: #a2d729;
+}
+
 html{
   background-color: #fafffd;
   color: #342e37;
