@@ -11,19 +11,19 @@ async function fetchProduct(id){
 }
 
 function makeCard(response){
-  results = document.getElementsByClassName('results');
+  results = document.getElementsById('results');
   let header = document.createElement('h2');
   header.innerText = 'Results:'
   if(response.status == 200){
     // if OK, we display the product
     if(results.children.length!= 0){
       // if we've searched before, there's no need to re-render the whole thing
-      let card = document.getElementsByClassName('product-card')
+      let card = document.getElementById('product-card')
 
     } else {
       // making the card for an individual pr
       let card = document.createElement('div');
-      card.class = 'product-card';
+      card.id = 'product-card';
       let
     }
   } else {
