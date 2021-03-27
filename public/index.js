@@ -7,27 +7,53 @@ async function fetchProduct(id){
   let _URL=`/product/${id}`;
   const response = await fetch(_URL, {method: 'GET', mode: 'same-origin'});
     // we're making a request to our own server, hence same-origin
-  makeCard(product)
+  if(response.status == '200'){
+    if(document.getElementById('error').style.display != 'none'){
+      document.getElementById('error').style.display = 'none';
+    }
+    let product = await response.json()
+    makeCard(product)
+  } else {
+    document.getElementById('error').style.display = 'inline';
+  }
 }
 
-function makeCard(response){
-  results = document.getElementsById('results');
+function makeCard(productJson){
+  /*
+  this function takes a response as input and uses information in the
+  response to render search results as cards.
+  */
+  results = document.getElementById('results');
   let header = document.createElement('h2');
   header.innerText = 'Results:'
-  if(response.status == 200){
-    // if OK, we display the product
-    if(results.children.length!= 0){
-      // if we've searched before, there's no need to re-render the whole thing
-      let card = document.getElementById('product-card')
+  if(results.children.length!= 0){
+    // if we've searched before, there's no need to re-render the whole thing
+    document.getElementById('card-link').href = productJson.link;
+    document.getElementById('card-title').innerText = productJson.title;
+    document.getElementById('card-image').src = productJson.image;
 
-    } else {
-      // making the card for an individual pr
-      let card = document.createElement('div');
-      card.id = 'product-card';
-      let
-    }
   } else {
-    //if 404, display error in card
+    // making the card for an individual product on first search
+    let card = document.createElement('div');
+    card.id = 'product-card';
+
+    let link = document.createElement('a');
+    link.id = 'card-link';
+    link.href = productJson.link;
+
+    let image = document.createElement('img');
+    image.id = 'card-image'
+    image.src = productJson.image;
+    link.appendChild(image);
+
+    let title = document.createElement('h3');
+    title.id = 'card-title'
+    title.innerText = productJson.title;
+    link.appendChild(title);
+
+    card.appendChild(header);
+    card.appendChild(link);
+    results.appendChild(card)
   }
 }
 
