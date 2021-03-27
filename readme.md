@@ -18,3 +18,5 @@ products within the Christianbook database by providing a product ID.
 [Express Documentation: Routing](https://expressjs.com/en/guide/routing.html)
 
 [MDN Web Docs: Response](https://developer.mozilla.org/en-US/docs/Web/API/Response)
+
+[StackExchange: Trigger a button click with JavaScript on the Enter key in a text box](https://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box)
