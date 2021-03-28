@@ -8,7 +8,7 @@ TODO: Explain how app works
 
 ## Performance
 
-### API Requests and Database Searches
+### API Requests and Database Searches: Theoretical Performance
 
 My original implementation of the database search was a simple linear search
 where the server iterated through the records array from beginning to end until
@@ -47,9 +47,33 @@ each element in the records array at least once to create the hash table, I'm
 not positive that using a different search algorithm would improve performance,
 unless the search made use of multiple concurrent threads.
 
-### Load Testing: Multiple Clients
+### Load Testing with Concurrent Clients: Actual performance
 
-TODO
+To loadtest my website, I used the NPM package [<code>loadtest</code>]
+(https://www.npmjs.com/package/loadtest) which allowed me to specify the number
+of concurrent users, the number of requests per second, and the total amount of
+time to run the load test. Admittedly, this was my first time load testing a
+site that I had built, so I wasn't exactly sure how many requests per second was
+ realistic given the number of concurrent users I wanted to test (100, 1000,
+10000, 100000, 1000000). I originally decided to limit the number of requests
+per second to the number of concurrent users (so 100 users meant 100 requests
+per second), and ran each test for 1000 seconds, or 16 minutes and ~40 seconds.
+However, as I moved up to 1000 users and 1000 tests, I overwhelmed my CPU and my
+computer repeatedly stalled and crashed; I'm running a MacBook Air with 8GB of
+ram and a quad-core 1.1GHz cpu, which I understand is less than the bare minimum
+recommended memory for a web server.
+
+
+
+It's important to note that the requests per second are shared across all
+concurrent users according to the loadtest documentation, so if there were 10
+users and the requests per second were limited to 10, then each user would only
+be able to make one request per second.
+
+I tested both requests to load the site and API requests (<code>http://localhost:
+3001</code> and <code>http://localhost:3001/product/823662</code> respectively)
+
+
 
 ## Time Spent in Development
 
@@ -61,7 +85,7 @@ I spent 7 hours developing the app according to the specification provided, then
 I decided not to use a frontend framework when building the UI because I felt
 confident in my ability to write all the necessary front end functions in
 vanilla JavaScript. However, because I wrote the front end using vanilla JS,
-some of the code is inelegant, and a bit repetitive. For example, when creating
+some of the code is inelegant, repetitive, and unlikely to scale well. For example, when creating
 the card that displays the search results for a particular product ID, create a
 large number of elements using functions like <code>document.createElement(...)</code>
 and <code>document.getElementById(...).style.display(...)</code> that make the
@@ -73,7 +97,7 @@ and it would definitely clean up the code here as well. This would be even more
 necessary if we were expecting multiple results in response to our query rather
 than just one result; I'd have to repeat the code I've written for any possible
 number of returned objects, which is impossible without some kind of template to
-fill in for each result. 
+fill in by iterating over the returned results.
 
 ## Sources Consulted
 
