@@ -49,31 +49,46 @@ unless the search made use of multiple concurrent threads.
 
 ### Load Testing with Concurrent Clients: Actual performance
 
-To loadtest my website, I used the NPM package [<code>loadtest</code>]
-(https://www.npmjs.com/package/loadtest) which allowed me to specify the number
-of concurrent users, the number of requests per second, and the total amount of
-time to run the load test. Admittedly, this was my first time load testing a
-site that I had built, so I wasn't exactly sure how many requests per second was
- realistic given the number of concurrent users I wanted to test (100, 1000,
-10000, 100000, 1000000). I originally decided to limit the number of requests
-per second to the number of concurrent users (so 100 users meant 100 requests
-per second), and ran each test for 1000 seconds, or 16 minutes and ~40 seconds.
-However, as I moved up to 1000 users and 1000 tests, I overwhelmed my CPU and my
-computer repeatedly stalled and crashed; I'm running a MacBook Air with 8GB of
-ram and a quad-core 1.1GHz cpu, which I understand is less than the bare minimum
-recommended memory for a web server.
+To loadtest my website, I used the NPM package
+[<code>loadtest</code>](https://www.npmjs.com/package/loadtest) which allowed me
+ to specify the number of concurrent users, the number of requests per second,
+and the total amount of time to run the load test. Admittedly, this was my
+first time load testing a site that I had built, so I wasn't exactly sure how
+many requests per second was realistic given the number of concurrent users I
+wanted to test (100, 1000, 10000, 100000, 1000000). I originally decided to
+limit the number of requests per second to the number of concurrent users (so
+100 users meant 100 requests per second), and ran each test (besides the first
+two tests for 100 users) for 500 seconds, However, as I moved up to 1000 users
+and 1000 tests, I overwhelmed my CPU and my computer repeatedly stalled and
+crashed; I'm running a MacBook Air with 8GB of ram and a quad-core 1.1GHz cpu,
+which I understand is less than the bare minimum recommended memory for a high
+traffic web server. I suspect that this has impacted the results of my load
+testing, especially in the case of high concurrency.
 
+Before I discuss the results in depth, It's important to note that the requests
+per second are shared across all concurrent users according to the loadtest
+documentation, so if there were 10 users and the requests per second were
+limited to 10, then each user would only be able to make one request per second.
 
+I tested for a range of users between 100 and 100000 users, not running load
+tests for 1000000 users.
 
-It's important to note that the requests per second are shared across all
-concurrent users according to the loadtest documentation, so if there were 10
-users and the requests per second were limited to 10, then each user would only
-be able to make one request per second.
+The site performed well at 100 users regardless of
+whether or not there were 100, 200, or 300 requests per second, averaging a
+latency of 12.2ms. Strangely, there was a 0.05% error rate when the request rate
+was set to 200/second, but none for 100/s or 300/s.
 
-I tested both requests to load the site and API requests (<code>http://localhost:
-3001</code> and <code>http://localhost:3001/product/823662</code> respectively)
+When I increased the users to 1000, the mean latency was 11.3ms across 100, 200,
+and 300 requests per second, and errors only started to occur when 300 requests
+per second were made, with an error rate of 0.17%.
 
-
+Increasing the users to 10000 resulted in a higher error rate across all request
+rates: 100 requests per second produced a 39.4% error rate, 200 requests per
+second produced a 49.4% error rate, and 300 requests per second produced a 46.7%
+error rate. Each increase in requests per second also increased the total number
+of requests made, but even with these increased totals, the error rate remained
+consistently in the ~40% - ~50% range. Average latency across all tests for
+10000 users was 4.2 seconds, which is dismally high. 
 
 ## Time Spent in Development
 
