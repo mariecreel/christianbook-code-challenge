@@ -88,7 +88,9 @@ second produced a 49.4% error rate, and 300 requests per second produced a 46.7%
 error rate. Each increase in requests per second also increased the total number
 of requests made, but even with these increased totals, the error rate remained
 consistently in the ~40% - ~50% range. Average latency across all tests for
-10000 users was 4.2 seconds, which is dismally high. 
+10000 users was 4.2 seconds, which is high enough that I expect there would be
+a noticeable delay for the users who didn't get errors in response to their
+requests. 
 
 ## Time Spent in Development
 

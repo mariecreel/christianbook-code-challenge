@@ -7,7 +7,7 @@ const port = 3001;
 
 const productsHashTable = hashProducts(products)
 
-app.use(express.static('public'))
+app.use(express.static('src'))
 
 app.get('/product/:id', (req, res)=>{
   // console.log(`API request made! Query: ${req.params.id}`)
