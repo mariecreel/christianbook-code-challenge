@@ -113,6 +113,7 @@ function makeCard(prodObj){
     let image = document.createElement('img');
     image.id = 'card-image'
     image.src = prodObj.image;
+    image.alt = `An image of ${prodObj.title}`;
     link.appendChild(image);
 
     let title = document.createElement('h3');
