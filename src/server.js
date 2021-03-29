@@ -23,7 +23,7 @@ app.get('/product/:id', (req, res)=>{
     );
   } else {
     // otherwise, send 404
-  return res.status(404).send("Sorry, that product doesn't exist.")
+    return res.status(404).send("Sorry, that product doesn't exist.")
   }
 })
 
