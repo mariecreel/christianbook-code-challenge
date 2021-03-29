@@ -154,6 +154,21 @@ than just one result; I'd have to repeat the code I've written for any possible
 number of returned objects, which is impossible without some kind of template to
 fill in by iterating over the returned results.
 
+On the server side, I'd like to optimize the server so that it can handle a
+large amount of users sending a high rate of requests per second. It's difficult
+for me to know whether or not the issues with performance are related to the
+server code as it's written or a memory problem when running the server on my
+local machine, but I could possibly improve performance by implementing
+threads in the API request function. Were I to implement multithreading,
+high concurrency could be anticipated and handled by splitting tasks up into
+different processes, reducing the amount of time that a user has to wait to
+receive a response and reducing the overall error rate. I have implemented
+multithreading in Python programs in the past, but I have not implemented
+multithreading in JavaScipt/Node.js, so I'd need to spend time understanding
+how multiple threads work in JavaScript/Node.js and ensuring that the
+multithreading doesn't introduce new errors or worsen performance. 
+
+
 ## Sources Consulted
 
 [NodeJS documentation: How do I start with Node.js after I installed it?](https://nodejs.org/en/docs/guides/getting-started-guide/)
