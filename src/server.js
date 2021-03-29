@@ -5,20 +5,24 @@ const products = require('./products.json');
 const hostname = '127.0.0.1';
 const port = 3001;
 
+// create the hash table of product IDs and indices
 const productsHashTable = hashProducts(products)
 
+// this ensures that express serves the static index.html
 app.use(express.static('src'))
 
 app.get('/product/:id', (req, res)=>{
-  // console.log(`API request made! Query: ${req.params.id}`)
+  // this handles API requests, :id matches user input
   let productID = req.params.id;
-  // debug: console.log('productID is', productID)
-  if(productsHashTable[productID]){
-    // debug: console.log('index is', productsHashTable[productID]);
+
+  if (productsHashTable[productID]) {
+    // if we have a product for the given id
     return res.status(200).send(
+      // send that product as a response
       JSON.stringify(products.records[productsHashTable[productID]])
     );
-  }else{
+  } else {
+    // otherwise, send 404
   return res.status(404).send("Sorry, that product doesn't exist.")
   }
 })
