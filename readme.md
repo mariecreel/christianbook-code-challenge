@@ -90,12 +90,12 @@ of requests made, but even with these increased totals, the error rate remained
 consistently in the ~40% - ~50% range. Average latency across all tests for
 10000 users was 4.2 seconds, which is high enough that I expect there would be
 a noticeable delay for the users who didn't get errors in response to their
-requests. 
+requests.
 
 ## Time Spent in Development
 
 I spent 7 hours developing the app according to the specification provided, then
-!!!!!<TODO: insert hours here>!!!!! hours load testing the application.
+3 hours load testing the application.
 
 ## Possible Improvements
 

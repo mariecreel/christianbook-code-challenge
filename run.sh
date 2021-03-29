@@ -1,1 +1,1 @@
-node ./src/server.js
+node ./docs/server.js
