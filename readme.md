@@ -14,7 +14,7 @@ navigate to a corresponding product listing on Christianbook.com.
 
 ### API Requests and Database Searches: Theoretical Performance
 
-<span style="color:pink"><em>
+<span style="color:gray"><em>
 How will your system perform with a 1 product in file? 10 products in file? 100 products in file?
 </em></span>
 
@@ -57,7 +57,7 @@ unless the search made use of multiple concurrent threads.
 
 ### Load Testing with Concurrent Clients: Actual performance
 
-<span style="color:pink"><em>
+<span style="color:gray"><em>
 How will your system perform with 100 users? 10000 users? 1000000 users?
 </em></span>
 
@@ -106,6 +106,10 @@ requests.
 
 ## Time Spent in Development
 
+<span style="color:gray"><em>
+How long did you spend on this exercise? If you had unlimited more time to spend on this, how would you spend it and how would you prioritize each item?
+</em></span>
+
 I spent 7 hours developing the app according to the specification provided,
 then 3 hours load testing the application.
 
@@ -118,9 +122,20 @@ I'd also test the software on a production server to ensure that the faults
 revealed in loadtesting were not the result of faulty code but of memory issues.
 
 Once I'd finished optimizing the server, I'd then move on to designing the front
-end. Currently, the front end works and is simply designed, but I would 
+end. I'd use a front end framework instead of writing the <code>makeCard</code>
+function myself so that I could make use of components for rendering the search
+results (this would be important if we intended to scale up to returning
+multiple products per search, creating a true search engine). The current front
+end is responsive, in the sense that it changes appearance to better suit small
+screens, but I'd like to spend more time optimizing for many common screen sizes
+to ensure every user has a good experience regardless of the device they're
+using.
 
 ## Possible Improvements
+
+<span style="color:gray"><em>
+If you were to critique your code, what would you have to say about it?
+</em></span>
 
 I decided not to use a frontend framework when building the UI because I felt
 confident in my ability to write all the necessary front end functions in
