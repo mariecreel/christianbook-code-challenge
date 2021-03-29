@@ -4,7 +4,6 @@ function buttonHandler(event){
     fetchProduct, but only if the search box is not empty.
   */
   let searchBox = document.getElementById('productID');
-  // this is the text input box
   if (searchBox.value != ''){
     fetchProduct(searchBox.value)
   }
