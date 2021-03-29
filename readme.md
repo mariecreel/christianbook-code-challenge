@@ -104,6 +104,12 @@ consistently in the ~40% - ~50% range. Average latency across all tests for
 a noticeable delay for the users who didn't get errors in response to their
 requests.
 
+When I tested 100000 users, I only tested for 100 rps, because the error rate
+and latency skyrocketed. For this test, the error rate was 83.6% and the average
+latency was 116.5 seconds, or a little below 2 minutes. From this poor
+performance, I expect that 1000000 users would result in a completely
+non-functional site. 
+
 ## Time Spent in Development
 
 <span style="color:gray"><em>
@@ -166,7 +172,7 @@ receive a response and reducing the overall error rate. I have implemented
 multithreading in Python programs in the past, but I have not implemented
 multithreading in JavaScipt/Node.js, so I'd need to spend time understanding
 how multiple threads work in JavaScript/Node.js and ensuring that the
-multithreading doesn't introduce new errors or worsen performance. 
+multithreading doesn't introduce new errors or worsen performance.
 
 
 ## Sources Consulted
