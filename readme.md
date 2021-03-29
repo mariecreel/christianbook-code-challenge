@@ -14,6 +14,10 @@ navigate to a corresponding product listing on Christianbook.com.
 
 ### API Requests and Database Searches: Theoretical Performance
 
+<span style="color:pink"><em>
+How will your system perform with a 1 product in file? 10 products in file? 100 products in file?
+</em></span>
+
 My original implementation of the database search was a simple linear search
 where the server iterated through the records array from beginning to end until
 it found a product ID that matched user input. In the worst case, a linear
@@ -52,6 +56,10 @@ not positive that using a different search algorithm would improve performance,
 unless the search made use of multiple concurrent threads.
 
 ### Load Testing with Concurrent Clients: Actual performance
+
+<span style="color:pink"><em>
+How will your system perform with 100 users? 10000 users? 1000000 users?
+</em></span>
 
 To loadtest my website, I used the NPM package
 [<code>loadtest</code>](https://www.npmjs.com/package/loadtest) which allowed me
@@ -98,8 +106,19 @@ requests.
 
 ## Time Spent in Development
 
-I spent 7 hours developing the app according to the specification provided, then
-3 hours load testing the application.
+I spent 7 hours developing the app according to the specification provided,
+then 3 hours load testing the application.
+
+If I had infinite time to work on this project, I would prioritize server
+optimization over front end concerns. I'd like to know that the server could
+handle a large number of requests before failing in the face of something like
+a holiday rush or a surge of users over their lunch break.
+
+I'd also test the software on a production server to ensure that the faults
+revealed in loadtesting were not the result of faulty code but of memory issues.
+
+Once I'd finished optimizing the server, I'd then move on to designing the front
+end. Currently, the front end works and is simply designed, but I would 
 
 ## Possible Improvements
 
