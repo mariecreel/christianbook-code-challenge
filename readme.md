@@ -4,7 +4,11 @@ Marie Creel - March 2021 - MIT License
 
 ## About
 
-TODO: Explain how app works
+This website allows users to search for a product in a product database. Users
+provide a unique product ID as input and in response, the website renders a
+short description of the product if it exists, or displays an error message if
+it doesn't exist. Users can click on the image or the name of the product and
+navigate to a corresponding product listing on Christianbook.com.
 
 ## Performance
 
