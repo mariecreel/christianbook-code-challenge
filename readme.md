@@ -108,12 +108,13 @@ When I tested 100000 users, I only tested for 100 rps, because the error rate
 and latency skyrocketed. For this test, the error rate was 83.6% and the average
 latency was 116.5 seconds, or a little below 2 minutes. From this poor
 performance, I expect that 1000000 users would result in a completely
-non-functional site. 
+non-functional site.
 
 ## Time Spent in Development
 
 <span style="color:gray"><em>
-How long did you spend on this exercise? If you had unlimited more time to spend on this, how would you spend it and how would you prioritize each item?
+How long did you spend on this exercise? If you had unlimited more time to spend
+ on this, how would you spend it and how would you prioritize each item?
 </em></span>
 
 I spent 7 hours developing the app according to the specification provided,
@@ -146,10 +147,11 @@ If you were to critique your code, what would you have to say about it?
 I decided not to use a frontend framework when building the UI because I felt
 confident in my ability to write all the necessary front end functions in
 vanilla JavaScript. However, because I wrote the front end using vanilla JS,
-some of the code is inelegant, repetitive, and unlikely to scale well. For example, when creating
-the card that displays the search results for a particular product ID, create a
-large number of elements using functions like <code>document.createElement(...)</code>
-and <code>document.getElementById(...).style.display(...)</code> that make the
+some of the code is inelegant, repetitive, and unlikely to scale well. For
+example, when creating the card that displays the search results for a
+particular product ID, I create a large number of elements using functions like
+<code>document.createElement(...)</code> and
+<code>document.getElementById(...).style.display(...)</code> that make the
 code difficult to read quickly for any errors when debugging. The obvious
 solution here would be to use a templating library like handlebars.js or built-in
 templating tools in frameworks like React or Svelte to programmatically update
