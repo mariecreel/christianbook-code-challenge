@@ -60,7 +60,7 @@ function makeCard(prodObj){
   /*
     This function takes an object returned from our API call as input. On the
     first time this function is run, the elements for a display card are
-    created and populated by attributes of the product object returned
+    created and populated by attributes of the object returned
     from our GET request.
 
     All consecutive calls to this function only change the content and
