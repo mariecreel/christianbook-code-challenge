@@ -14,8 +14,7 @@ app.use(express.static('src'))
 app.get('/product/:id', (req, res)=>{
   // this handles API requests, :id matches user input
   let productID = req.params.id;
-
-  if (productsHashTable[productID]) {
+  if (productsHashTable[productID] != undefined) {
     // if we have a product for the given id
     return res.status(200).send(
       // send that product as a response

@@ -16,7 +16,8 @@ function searchHandler(event){
     type their product ID. If the user hits enter while selecting the input box,
     this is equivalent to clicking the "Search Products" button.
   */
-  if (event.keyCode == 13){
+  let keycode = window.event.keyCode;
+  if (keycode == 13){
     document.getElementById('search-button').click()
    }
 }
