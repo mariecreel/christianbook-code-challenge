@@ -3,7 +3,7 @@ const app = express();
 const hashProducts = require('./hashProducts.js')
 const products = require('./products.json');
 const hostname = '127.0.0.1';
-const port = server.listen(process.env.PORT || 3000); // to deploy to heroku
+const port = process.env.PORT || 3000; // to deploy to heroku
 
 // create the hash table of product IDs and indices
 const productsHashTable = hashProducts(products)
