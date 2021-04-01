@@ -1,6 +1,6 @@
-# Christianbook Product Search
+# [Christianbook Product Search](https://christianbook-code-challenge.herokuapp.com/)
 
-Marie Creel - March 2021 - MIT License
+Marie Creel - March 2021 - MIT License - [Deployed on Heroku](https://christianbook-code-challenge.herokuapp.com/)
 
 ## About
 
