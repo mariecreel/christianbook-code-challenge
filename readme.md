@@ -1,6 +1,6 @@
-# Christianbook Product Search
+# [Christianbook Product Search](https://christianbook-code-challenge.herokuapp.com/)
 
-Marie Creel - March 2021 - MIT License
+Marie Creel - March 2021 - MIT License - [Deployed on Heroku](https://christianbook-code-challenge.herokuapp.com/)
 
 ## About
 
@@ -9,6 +9,12 @@ provide a unique product ID as input and in response, the website renders a
 short description of the product if it exists, or displays an error message if
 it doesn't exist. Users can click on the image or the name of the product and
 navigate to a corresponding product listing on Christianbook.com.
+
+## Tip
+
+To to see the app in action, go to the heroku deployment and search for a product ID in
+[products.json](https://github.com/ncreel/christianbook-code-challenge/blob/master/src/products.json),
+like 705255, 08790, or 322364.
 
 ## Performance
 
