@@ -9,6 +9,10 @@
   color: #520050;
 }
 
+#products-available{
+  text-align: left;
+}
+
 #product-card{
   background-color: #fff;
   padding: 20px;
